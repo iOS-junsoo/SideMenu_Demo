@@ -1,24 +1,159 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5o1-cl-w3C">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--메인-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SideMenu_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" title="메인" id="7AK-tn-h8h">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="line.3.horizontal" catalog="system" id="BaH-p6-yqE">
+                            <connections>
+                                <action selector="buttonClicked:" destination="BYZ-38-t0r" id="Dah-Gv-QiU"/>
+                                <segue destination="igM-va-MR5" kind="show" id="fBY-7H-w5v"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-225" y="141"/>
+        </scene>
+        <!--Custom Side Menu Navigation-->
+        <scene sceneID="x4v-r3-KZA">
+            <objects>
+                <navigationController id="igM-va-MR5" customClass="CustomSideMenuNavigation" customModule="SideMenu_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Nih-V5-LHM"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5ta-p1-m7A">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="dxW-wx-n1O" kind="relationship" relationship="rootViewController" id="obX-Ni-GDw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l4b-Za-jZh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="506" y="141"/>
+        </scene>
+        <!--Side Menu View Controller-->
+        <scene sceneID="ljU-BI-0zv">
+            <objects>
+                <viewController storyboardIdentifier="SideMenuNavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dxW-wx-n1O" customClass="SideMenuViewController" customModule="SideMenu_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MpM-LK-1hU" customClass="Side">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="단테(김준수)회원님" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SPM-xy-O3J">
+                                <rect key="frame" x="138" y="141.5" width="138.5" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RC2기-iOS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfe-hw-a8n">
+                                <rect key="frame" x="171" y="165.5" width="72.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="92" translatesAutoresizingMaskIntoConstraints="NO" id="Kfr-yL-i6H">
+                                <rect key="frame" x="157" y="246.5" width="100" height="304"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46d-dT-MkY">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="마이페이지">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M4B-im-VQR">
+                                        <rect key="frame" x="0.0" y="132" width="100" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="공지사항">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrr-ZG-VFb">
+                                        <rect key="frame" x="0.0" y="264" width="100" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="환경설정">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbE-B5-OkB">
+                                <rect key="frame" x="171" y="835.5" width="72.5" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="로그아웃"/>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="김준수" translatesAutoresizingMaskIntoConstraints="NO" id="PtI-sN-dQi">
+                                <rect key="frame" x="87" y="52" width="240" height="96"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="K3y-ms-aNG"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Kfr-yL-i6H" firstAttribute="centerY" secondItem="MpM-LK-1hU" secondAttribute="centerY" multiplier="0.89" id="1HE-5M-vfO"/>
+                            <constraint firstItem="SPM-xy-O3J" firstAttribute="centerX" secondItem="MpM-LK-1hU" secondAttribute="centerX" id="1YN-tr-jpX"/>
+                            <constraint firstItem="Kfr-yL-i6H" firstAttribute="centerX" secondItem="MpM-LK-1hU" secondAttribute="centerX" id="5QR-JC-n9Q"/>
+                            <constraint firstItem="PtI-sN-dQi" firstAttribute="centerX" secondItem="MpM-LK-1hU" secondAttribute="centerX" id="9Dt-rS-crx"/>
+                            <constraint firstItem="mbE-B5-OkB" firstAttribute="centerX" secondItem="MpM-LK-1hU" secondAttribute="centerX" id="OX4-xo-GKg"/>
+                            <constraint firstItem="PtI-sN-dQi" firstAttribute="width" secondItem="MpM-LK-1hU" secondAttribute="width" multiplier="0.57971" id="PS0-GV-nBX"/>
+                            <constraint firstItem="PtI-sN-dQi" firstAttribute="centerY" secondItem="MpM-LK-1hU" secondAttribute="centerY" multiplier="0.223" id="Wdb-XN-g7R"/>
+                            <constraint firstItem="jfe-hw-a8n" firstAttribute="centerY" secondItem="MpM-LK-1hU" secondAttribute="centerY" multiplier="0.39" id="ddJ-WE-ZLf"/>
+                            <constraint firstItem="PtI-sN-dQi" firstAttribute="height" secondItem="MpM-LK-1hU" secondAttribute="height" multiplier="0.107143" id="lHZ-7B-dBH"/>
+                            <constraint firstItem="mbE-B5-OkB" firstAttribute="centerY" secondItem="MpM-LK-1hU" secondAttribute="centerY" multiplier="1.9" id="tV2-Qf-WPj"/>
+                            <constraint firstItem="jfe-hw-a8n" firstAttribute="centerX" secondItem="MpM-LK-1hU" secondAttribute="centerX" id="wWb-G7-t60"/>
+                            <constraint firstItem="SPM-xy-O3J" firstAttribute="centerY" secondItem="MpM-LK-1hU" secondAttribute="centerY" multiplier="0.34" id="ybQ-Li-GH8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="6k6-3E-9CO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Soe-rj-YMp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1208.6956521739132" y="140.625"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="D4l-7W-COI">
+            <objects>
+                <navigationController id="5o1-cl-w3C" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OXl-Do-gMp">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="WnK-86-WeI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JrT-VA-n9y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-923" y="151"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="line.3.horizontal" catalog="system" width="128" height="64"/>
+        <image name="김준수" width="421" height="421"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
